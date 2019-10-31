@@ -44,9 +44,26 @@ $evaluation2 = new Evaluation(Evaluation::TYPE_PRATIQUE, 'mini projet à réalis
 $utc501->addEvaluation($evaluation1);
 $utc501->addEvaluation($evaluation2);
 
+$utc501Clone = $utc501->clonage();
+
 $ensembleDeCours = new EnsembleDeCours();
 $ensembleDeCours->addCours($utc503);
 $ensembleDeCours->addCours($utc501);
+$ensembleDeCours->addCours($utc501Clone);
+
+// comparaison des clones
+if($utc501 == $utc501Clone){
+    echo '$utc501 == $utc501Clone', PHP_EOL;
+}
+if($utc501 != $utc501Clone){
+    echo '$utc501 != $utc501Clone', PHP_EOL;
+}
+if($utc501 === $utc501Clone){
+    echo '$utc501 === $utc501Clone', PHP_EOL;
+}
+if($utc501 !== $utc501Clone){
+    echo '$utc501 !== $utc501Clone', PHP_EOL;
+}
 
 // Si appel par CLI
 if (isset($argc)) {

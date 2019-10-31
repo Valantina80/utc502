@@ -6,7 +6,7 @@ namespace LambertAnne_France;
 /**
  * Ensemble de cours pour l'affichage de plusieurs cours
  */
-class EnsembleDeCours
+class EnsembleDeCours /*implements Iterator*/
 {
     private $listeCours;
 
@@ -57,5 +57,24 @@ class EnsembleDeCours
         if ($cleCours = array_search($cours, $this->listeCours)) {
             unset($this->listeCours[$cleCours]);
         }
+    }
+    public function rewind() {
+        $this->position = 0;
+    }
+
+    public function current() {
+        return $this->array[$this->position];
+    }
+
+    public function key() {
+        return $this->position;
+    }
+
+    public function next() {
+        ++$this->position;
+    }
+
+    public function valid() {
+        return isset($this->array[$this->position]);
     }
 }

@@ -204,6 +204,10 @@ abstract class CoursLicence
         }
         return $noteCours / $coeffTotal;
     }
+    public function clonage(){
+        return clone $this;
+    }
+   
     
 
 }
