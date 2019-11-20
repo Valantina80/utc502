@@ -4,7 +4,7 @@ namespace LambertAnne_France;
 use LambertAnne_France\Singleton;
 use Exception;
 
-class ParserFactory{
+class ParserFactory{ 
 
     private static $_instance = null;
 
