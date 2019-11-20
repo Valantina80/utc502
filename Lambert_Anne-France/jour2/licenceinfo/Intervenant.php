@@ -1,7 +1,9 @@
 <?php
 
 namespace LambertAnne_France;
-
+/**
+ * Intervenant d'une séquence
+ */
 class Intervenant{
 
     private $nom;
@@ -12,7 +14,7 @@ class Intervenant{
     /**
      * Intervenant constructor.
      * @param $nom
-     * @param $description
+     * @param $prenom
      */
     public function __construct(string $nom, string $prenom)
     {
@@ -52,7 +54,11 @@ class Intervenant{
         $this->prenom = $prenom;
     }
 
-
+    /**
+     * affiche la qualité de l'intervenant pour l'appel de la fonction getQualiteProjetSmartCity
+     * @param $name : nom de la fonction à utiliser
+     * @return string la qualité de l'intervenant
+     */
     public function __get($name)
     {
         if($name == 'getQualiteProjetSmartCity'){
@@ -65,7 +71,10 @@ class Intervenant{
             return('la fonction '. $name .' n\'existe pas.');
         }             
     }
-
+    /**
+     * affiche l'intervenant en chaine de caractères
+     * @return string
+     */
     public function __toString()
     {
         return $this->nom.' '.$this->prenom;

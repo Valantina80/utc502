@@ -1,0 +1,7 @@
+<?xml version = "1.0" encoding="UTF-8" standalone="yes" ?>
+<Personnes>
+<personne><nom>Lafleur</nom><prenom>Célia</prenom><age>25</age></personne>
+<personne><nom>Lambert</nom><prenom>Anne-France</prenom><age>24</age></personne>
+<personne><nom>Dominici</nom><prenom>Guillaumme</prenom><age>20</age></personne>
+<personne><nom>Castro</nom><prenom>Nicolas</prenom><age>21</age></personne>
+</Personnes>
