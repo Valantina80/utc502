@@ -12,7 +12,9 @@ use LambertAnne_France\XmlParser;
 
 
 $o=ParserFactory::getInstance();
-$fichier=$o->getParser('moncsv.csv');
-$fichier->donnees();
+// $fichier=$o->getParser('moncsv.csv');
+// $fichier->donnees();
 
+$fichier2=$o->getParser('monxml.xml');
+$fichier2->entete();
 ?>
