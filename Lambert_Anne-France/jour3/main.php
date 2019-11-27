@@ -16,5 +16,5 @@ $o=ParserFactory::getInstance();
 // $fichier->donnees();
 
 $fichier2=$o->getParser('monxml.xml');
-$fichier2->entete();
+$fichier2->donnees();
 ?>
