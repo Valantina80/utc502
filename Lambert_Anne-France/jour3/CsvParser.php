@@ -31,10 +31,8 @@ class CsvParser extends Parser
         {
             $entete=$this->entete()[$i];
             $o->$entete=$ligne[$i];
-        }
-        
+        }     
         return($o);
-
     }
     /**
      * transforme l'entete du fichier en tableau

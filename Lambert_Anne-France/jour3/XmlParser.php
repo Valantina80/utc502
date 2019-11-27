@@ -29,12 +29,12 @@ class XmlParser extends Parser
     public function transformeDonneesObjet($ligne)
     {
         $o=new stdClass;
-        for($i=0; $i < count($this->entete()); $i++)
+        for($i=0; $i < count($ligne); $i++)
         {
             $entete=$this->entete()[$i];
             $o->$entete=$ligne[$i];
         }
-        var_dump($o);
+        return($o);
     }
     /**
      * transforme les noms des noeuds en tableau
@@ -65,6 +65,8 @@ class XmlParser extends Parser
     public function donnees()
     {
         $doc=new DOMDocument;
+        $mesObjets=array();
+
         if (!$this->xml->open($this->name)) {
             die("Impossible d'ouvrir '".$this->name."'");
         }
@@ -76,10 +78,12 @@ class XmlParser extends Parser
                 foreach($node as $ligne){  
                     array_push($tabDonnees, $ligne->__toString()); 
                 }
-                $this->transformeDonneesObjet($tabDonnees);
+                $monObjet = $this->transformeDonneesObjet($tabDonnees);
+                array_push($mesObjets,$monObjet);
             }    
         }
         $this->xml->close();
+        return($mesObjets);
         
     }
    
