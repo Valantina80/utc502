@@ -29,7 +29,7 @@ class WriterFactory{
     /**
      * instanciation en fonction du premier argument donné
      */
-    public static function getWriter($name, $objets) {
+    public static function getWriter(string $name, array $objets) {
         switch ($name) {
             case "cli":
                 return new CliWriter($objets);

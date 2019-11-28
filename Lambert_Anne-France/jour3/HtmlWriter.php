@@ -8,7 +8,7 @@ class HtmlWriter extends Writer{
     /**
      * HtmlWriter constructor.
      */
-    public function __construct($listeObject)
+    public function __construct(array $listeObject)
     {
         $this->listeObject=$listeObject;
     }
@@ -22,7 +22,6 @@ class HtmlWriter extends Writer{
                 if($value != null){
                     echo("<li>".$key." : ".$value."</li>");
                 }
-              
             }
             echo("</ul>");
         }

@@ -29,7 +29,7 @@ class ParserFactory{
     /**
      * instanciation en fonction du type de fichier
      */
-    public static function getParser($name) {
+    public static function getParser(string $name) {
         switch (pathinfo($name, PATHINFO_EXTENSION)) {
             case "xml":
                 return new XmlParser($name);

@@ -9,7 +9,7 @@ abstract class Parser
     /**
      * Parser constructor.
      */
-    protected function __construct($file)
+    protected function __construct(string $file)
     {
         $this->file=$file;
     }
@@ -18,7 +18,7 @@ abstract class Parser
      * transforme la ligne de donnees en objet
      * @param array $ligne
      */
-    public abstract function transformeDonneesObjet($ligne);
+    public abstract function transformeDonneesObjet(array $ligne);
     /**
      * transforme l'entete/les tags des noeuds du fichier en tableau
      * @return array

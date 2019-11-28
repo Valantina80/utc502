@@ -13,7 +13,7 @@ class CsvParser extends Parser
     /**
      * CsvParser constructor.
      */
-    public function __construct($csv)
+    public function __construct(string $csv)
     {
         $csv= new SplFileObject($csv);
         $this->csv=$csv;
@@ -24,7 +24,7 @@ class CsvParser extends Parser
      * @param array $ligne
      * @return stdClass
      */
-    public function transformeDonneesObjet($ligne)
+    public function transformeDonneesObjet(array $ligne)
     {
         $o=new stdClass;
         for($i=0; $i < count($ligne); $i++)
@@ -59,7 +59,7 @@ class CsvParser extends Parser
             }
             fclose($handle);
         }  
-        return( $mesObjets);
+        return($mesObjets);
     }
     
     

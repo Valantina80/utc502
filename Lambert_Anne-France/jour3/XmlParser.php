@@ -15,18 +15,18 @@ class XmlParser extends Parser
     /**
      * XmlParser constructor.
      */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->xml= new XMLReader();
         $this->name=$name;
-        parent::__construct($this->xml);
+        parent::__construct($this->name);
     }
     /**
      * transforme la ligne de donnees en objet
      * @param array $ligne
      * @return stdClass
      */
-    public function transformeDonneesObjet($ligne)
+    public function transformeDonneesObjet(array $ligne)
     {
         $o=new stdClass;
         for($i=0; $i < count($ligne); $i++)
@@ -42,21 +42,25 @@ class XmlParser extends Parser
      */
     public function entete()
     {
-        $doc=new DOMDocument;
-        if (!$this->xml->open($this->name)) {
-            die("Impossible d'ouvrir '".$this->name."'");
-        }
-
-        while($this->xml->read()) {
-            if ($this->xml->nodeType == XMLReader::ELEMENT && $this->xml->name == 'personne') {
-                $node = simplexml_import_dom($doc->importNode($this->xml->expand(), true));
-                $keyTab=array();
-                foreach ($node->children() as $child) {
-                    array_push($keyTab, $child->getName());
-                }
+        $node = simplexml_load_string(file_get_contents($this->name));
+        $entete = [];
+        $cle = "";
+        foreach($node as $key=>$value){
+            if($cle == ""){
+                $cle = $key;
             }
+            if($cle == $key){
+                foreach($value as $attr=>$val){
+                    if(!in_array($attr, $entete)){
+                        array_push($entete, $attr);
+                    }
+                }
+            }else{
+                throw new ErrorException("Format XML incorrect");
+            }
+            $cle = $key;
         }
-        return($keyTab);
+        return $entete;
     }
     /**
      * transforme les donnees du fichier en tableau d'objets

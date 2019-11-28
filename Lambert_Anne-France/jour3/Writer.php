@@ -9,7 +9,7 @@ abstract class Writer
     /**
      * constructor Writer
      */
-    protected function __construct($listeObject)
+    protected function __construct(array $listeObject)
     {
         $this->listeObject=$listeObject;
     }

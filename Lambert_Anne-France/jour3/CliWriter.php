@@ -10,7 +10,7 @@ class CliWriter extends Writer{
     /**
      * CliWriter constructor.
      */
-    public function __construct($listeObject)
+    public function __construct(array $listeObject)
     {
         $this->listeObject=$listeObject;
     }
